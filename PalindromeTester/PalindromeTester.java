@@ -4,7 +4,7 @@ import java.util.Scanner;
  * Demonstrates the use of nested while loops.
  * 
  * @author Lewis/Loftus/Cocking
- */
+*/
 public class PalindromeTester
 {
     /**

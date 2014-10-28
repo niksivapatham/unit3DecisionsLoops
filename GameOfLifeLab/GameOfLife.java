@@ -48,7 +48,7 @@ public class GameOfLife
         // display the newly constructed and populated world
         world.show();
         
-    }
+}
     
     /**
      * Creates the actors and inserts them into their initial starting positions in the grid
