@@ -23,11 +23,14 @@ public class GameOfLife
     private final int COLS = 103;
 
     // constants for the location of the three cells initially alive
-    private final int X1 = 4, Y1 = 2;
-    private final int X2 = 4, Y2 = 3;
-    private final int X3 = 4, Y3 = 4;
-    private final int X4 = 4, Y4 = 5;
-    private final int X5 = 4, Y5 = 6;
+    private final int X1 = 22, Y1 = 19;
+    private final int X2 = 22, Y2 = 20;
+    private final int X3 = 20, Y3 = 20;
+    private final int X4 = 22, Y4 = 23;
+    private final int X5 = 22, Y5 = 24;
+    private final int X6 = 22, Y6 = 25;
+    private final int X7 = 21, Y7 = 22;
+    
 
     /**
      * Default constructor for objects of class GameOfLife
@@ -64,47 +67,14 @@ public class GameOfLife
         //(alive cells contains actors; dead cells do not)
 
         Grid<Actor> grid = world.getGrid();
-        Random generator = new Random();
-
-        for (int i=0;i<ROWS;i++){
-
-            for (int j=0;j<COLS;j++) {
-                if (i == 0 || i == ROWS) {
-                    Rock rock = new Rock();
-                    Location loc = new Location(i,j);
-                    grid.put(loc,rock);
-                }
-
-                else if (j== 0 || j==COLS) {
-                    Rock rock = new Rock();
-                    Location loc = new Location(i,j);
-                    grid.put(loc,rock);
-                }
-
-            }
-        }
-
-        // 
-        // create and add rocks (a type of Actor) to the three intial locations
-        //         Rock rock1 = new Rock();
-        //         Location loc1 = new Location(X1, Y1);
-        //         grid.put(loc1, rock1);
-        // 
-        //         Rock rock2 = new Rock();
-        //         Location loc2 = new Location(X2, Y2);
-        //         grid.put(loc2, rock2);
-        // 
-        //         Rock rock3 = new Rock();
-        //         Location loc3 = new Location(X3, Y3);
-        //         grid.put(loc3, rock3);
-        // 
-        //         Rock rock4 = new Rock();
-        //         Location loc4 = new Location(X4, Y4);
-        //         grid.put(loc4, rock4);
-        // 
-        //         Rock rock5 = new Rock();
-        //         Location loc5 = new Location(X5, Y5);
-        //         grid.put(loc5, rock5);
+        createDudes(X1,Y1);
+        createDudes(X2,Y2);
+        createDudes(X3,Y3);
+        createDudes(X4,Y4);
+        createDudes(X5,Y5);
+        createDudes(X6,Y6);
+        createDudes(X7,Y7);       
+       
 
     }
 
@@ -133,25 +103,30 @@ public class GameOfLife
             {
                 Location location = new Location(row,column);
                 ArrayList<Location> adjacent_location = new ArrayList<Location>(grid.getOccupiedAdjacentLocations(location));
+                
+                if ((all_live_locations.contains(location) && adjacent_location.size()== 2 || adjacent_location.size()== 3) || all_live_locations.size() == 3)
+                {
+                    
+                }
 
                 //When the location is alive                
-                if (all_live_locations.contains(location)){                    
-                    if (adjacent_location.size()>3 || adjacent_location.size()<2)
-                    {
-                        String getRekt = "Get Shrekt son";                        
-                    }
-                    else {
-                        next_generation.add(location);                          
-                    }
-
-                }
-                //When the location is not alive
-                else {
-                    if (adjacent_location.size()==3)
-                    {
-                        next_generation.add(location);
-                    }
-                }
+//                 if (all_live_locations.contains(location)){                    
+//                     if (adjacent_location.size()>3 || adjacent_location.size()<2)
+//                     {
+//                         String getRekt = "Get Shrekt son";                        
+//                     }
+//                     else {
+//                         next_generation.add(location);                          
+//                     }
+// 
+//                 }
+//                 //When the location is not alive
+//                 else {
+//                     if (adjacent_location.size()==3)
+//                     {
+//                         next_generation.add(location);
+//                     }
+//                 }
             }
         }
 
@@ -170,6 +145,14 @@ public class GameOfLife
         all_live_locations.clear();
         next_generation.clear();
 
+    }
+    
+    private void createDudes(int locx,int locy)
+    {
+        Grid<Actor> grid = world.getGrid();
+        Rock rock = new Rock();
+        Location location = new Location(locx,locy);
+        grid.put(location,rock);
     }
 
     /**
