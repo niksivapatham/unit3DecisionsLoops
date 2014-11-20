@@ -132,7 +132,7 @@ public class GameOfLife
         //Clears the arraylists for the next call
         all_live_locations.clear();
         next_generation.clear();
-
+        this.world.show();
     }
 
     /**
