@@ -67,16 +67,13 @@ Artifacts to Produce:
     like or dislike and why? What was surprising or unexpected? What did you
     learn? What questions do you still have? What advice would you offer next
     year's students?
-* I want my my gird to be boundless, such that it will create more and more should
-    the need arise, until it reaches the size of the screen
+* I want my my gird to be relatively large, around 100x100
 * Live cells will be different colored circles, just like people in real life
-* Dead cells will disappear
-* The begining seed will probably be pseuodrandomly generated, just to make sure that 
-     it doesn't die out
+* Dead cells will not appear on the grid
+* The begining seed will probably be something that can expand a lot
 * The game will run forever
 * The game's screen will wrap around, because it's the cool thing to do
-* If you click the same spot exactly ten times, it will drop an atomic bomb, which shall
-     end life as we know it.
+
 
  
 

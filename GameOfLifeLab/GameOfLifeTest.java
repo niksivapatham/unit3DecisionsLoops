@@ -38,24 +38,15 @@ public class GameOfLifeTest
     public void tearDown()
     {
     }
+    /**
+     * This test the initial seed pattern to make sure it was implemented properly
+     */
 
     @Test
     public void testInitialState()
     {
-        /* expected pattern for initial state
-         *  (X: alive; -: dead)
-         * 
-         *    0 1 2 3 4 5 6 7 8 9 
-         *  0 - - - - - - - - - - 
-         *  1 - - - - - - - - - - 
-         *  2 - - - - - - - - - - 
-         *  3 - - - - - - - - - - 
-         *  4 - - X X X X X - - - 
-         *  5 - - - - - - - - - - 
-         *  6 - - - - - - - - - - 
-         *  7 - - - - - - - - - - 
-         *  8 - - - - - - - - - - 
-         *  9 - - - - - - - - - -          
+        /* No expected Pattern because the grid is giant
+         *        
          */
 
         GameOfLife game = new GameOfLife();
@@ -70,11 +61,13 @@ public class GameOfLifeTest
                 Actor cell = game.getActor(row, col);
 
                 // if the cell at the current row and col should be alive, assert that the actor is not null
-                if(     (row == 4 && col == 2) ||
-                        (row == 4 && col == 3) ||
-                        (row == 4 && col == 4) ||
-                        (row == 4 && col == 5) ||
-                        (row == 4 && col == 6))
+                if(     (row == 52 && col == 49) ||
+                        (row == 52 && col == 50) ||
+                        (row == 50 && col == 50) ||
+                        (row == 52 && col == 53) ||
+                        (row == 52 && col == 54) ||
+                        (row == 52 && col == 55) ||
+                        (row == 51 && col == 52)) 
                 {
                     assertNotNull("expected alive cell at (" + row + ", " + col + ")", cell);
                 }
@@ -85,29 +78,21 @@ public class GameOfLifeTest
             }
         }
     }
+    /**
+     * Though meant to test the final state, my seed infinitely expands, so it effectively
+     * just tests the second phase, just to make sure the next Generation method is functioning
+     * properly
+     */
 
     @Test
     public void testFinalState()
     {
-        /* expected pattern for initial state
-         *  (X: alive; -: dead)
-         * 
-         *    0 1 2 3 4 5 6 7 8 9 
-         *  0 - - - - - - - - - - 
-         *  1 - - - - - - - - - - 
-         *  2 - - - - - - - - - - 
-         *  3 - - - X X X - - - - 
-         *  4 - - - X X X - - - - 
-         *  5 - - - X X X - - - - 
-         *  6 - - - - - - - - - - 
-         *  7 - - - - - - - - - - 
-         *  8 - - - - - - - - - - 
-         *  9 - - - - - - - - - -          
-         */
+             
         
         GameOfLife game = new GameOfLife();
         final int ROWS = game.getNumRows();
         final int COLS = game.getNumCols();
+        //Tests the second stage to make sure everything is going according to plan
         game.createNextGeneration();
         
         for(int row = 0; row < ROWS; row++)
@@ -118,15 +103,14 @@ public class GameOfLifeTest
                 Actor cell = game.getActor(row, col);
 
                 // if the cell at the current row and col should be alive, assert that the actor is not null
-                if(     (row == 3 && col == 3) ||
-                        (row == 3 && col == 4) ||
-                        (row == 3 && col == 5) ||
-                        (row == 4 && col == 3) ||
-                        (row == 4 && col == 4) ||
-                        (row == 4 && col == 5) ||
-                        (row == 5 && col == 3) ||
-                        (row == 5 && col == 4) ||
-                        (row == 5 && col == 5)        
+                if(     (row == 51 && col == 49) ||
+                        (row == 51 && col == 50) ||
+                        (row == 51 && col == 51) ||
+                        (row == 51 && col == 53) ||
+                        (row == 51 && col == 54) ||
+                        (row == 52 && col == 53) ||
+                        (row == 52 && col == 54) ||   
+                        (row == 53 && col == 54)
                 
                 )            
                 

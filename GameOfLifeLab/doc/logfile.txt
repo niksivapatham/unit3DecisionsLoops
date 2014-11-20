@@ -1,12 +1,18 @@
-Project documentation
+Class documentation
 <---- javadoc command: ---->
 C:\Program Files (x86)\BlueJ\jdk\bin\javadoc.exe
--sourcepath
-C:\Github\unit3DecisionsLoops\GameOfLifeLab
+-author
+-version
+-nodeprecated
+-package
+-noindex
+-notree
+-nohelp
+-nonavbar
 -source
 1.8
 -classpath
-C:\Program Files (x86)\BlueJ\lib\bluejcore.jar;C:\Program Files (x86)\BlueJ\lib\junit-4.8.2.jar;C:\Program Files (x86)\BlueJ\lib\userlib\pi4j-core.jar;C:\Program Files (x86)\BlueJ\lib\userlib\pi4j-device.jar;C:\Program Files (x86)\BlueJ\lib\userlib\pi4j-gpio-extension.jar;C:\Program Files (x86)\BlueJ\lib\userlib\pi4j-service.jar;C:\Github\unit3DecisionsLoops\GameOfLifeLab
+C:\Program Files (x86)\BlueJ\lib\bluejcore.jar;C:\Program Files (x86)\BlueJ\lib\junit-4.8.2.jar;C:\Java Packages\GridWorld-master\gridworld.jar;C:\Program Files (x86)\BlueJ\lib\userlib\pi4j-core.jar;C:\Program Files (x86)\BlueJ\lib\userlib\pi4j-device.jar;C:\Program Files (x86)\BlueJ\lib\userlib\pi4j-gpio-extension.jar;C:\Program Files (x86)\BlueJ\lib\userlib\pi4j-service.jar;C:\Github\unit3DecisionsLoops\GameOfLifeLab
 -d
 C:\Github\unit3DecisionsLoops\GameOfLifeLab\doc
 -encoding
@@ -17,52 +23,19 @@ UTF-8
 C:\Program Files (x86)\BlueJ\lib\bjdoclet.jar
 -doclet
 bluej.doclet.doclets.formats.html.HtmlDoclet
--doctitle
-GameOfLifeLab
--windowtitle
-GameOfLifeLab
--author
--version
--nodeprecated
--package
--link
-http://download.oracle.com/javase/8/docs/api/
-C:\Github\unit3DecisionsLoops\GameOfLifeLab/GameOfLifeTest.java
-C:\Github\unit3DecisionsLoops\GameOfLifeLab/GameOfLife.java
+C:\Github\unit3DecisionsLoops\GameOfLifeLab\GameOfLifeTest.java
 <---- end of javadoc command ---->
 Loading source file C:\Github\unit3DecisionsLoops\GameOfLifeLab\GameOfLifeTest.java...
-C:\Github\unit3DecisionsLoops\GameOfLifeLab\GameOfLifeTest.java:132: error: illegal start of expression
-                )
-                ^
-C:\Github\unit3DecisionsLoops\GameOfLifeLab\GameOfLifeTest.java:132: error: ')' expected
-                )
-                 ^
-C:\Github\unit3DecisionsLoops\GameOfLifeLab\GameOfLifeTest.java:135: error: ')' expected
-                {
-                 ^
-C:\Github\unit3DecisionsLoops\GameOfLifeLab\GameOfLifeTest.java:136: error: ')' expected
-                    assertNotNull("expected alive cell at (" + row + ", " + col + ")", cell);
-                                 ^
-C:\Github\unit3DecisionsLoops\GameOfLifeLab\GameOfLifeTest.java:136: error: ')' expected
-                    assertNotNull("expected alive cell at (" + row + ", " + col + ")", cell);
-                                  ^
-C:\Github\unit3DecisionsLoops\GameOfLifeLab\GameOfLifeTest.java:136: error: ')' expected
-                    assertNotNull("expected alive cell at (" + row + ", " + col + ")", cell);
-                                                                                     ^
-C:\Github\unit3DecisionsLoops\GameOfLifeLab\GameOfLifeTest.java:136: error: ')' expected
-                    assertNotNull("expected alive cell at (" + row + ", " + col + ")", cell);
-                                                                                      ^
-C:\Github\unit3DecisionsLoops\GameOfLifeLab\GameOfLifeTest.java:136: error: ')' expected
-                    assertNotNull("expected alive cell at (" + row + ", " + col + ")", cell);
-                                                                                            ^
-C:\Github\unit3DecisionsLoops\GameOfLifeLab\GameOfLifeTest.java:137: error: illegal start of statement
-                }
-                ^
-C:\Github\unit3DecisionsLoops\GameOfLifeLab\GameOfLifeTest.java:138: error: 'else' without 'if'
-                else // else, the cell should be dead; assert that the actor is null
-                ^
-C:\Github\unit3DecisionsLoops\GameOfLifeLab\GameOfLifeTest.java:145: error: class, interface, or enum expected
-}
-^
-Loading source file C:\Github\unit3DecisionsLoops\GameOfLifeLab\GameOfLife.java...
-11 errors
+Constructing Javadoc information...
+Standard Doclet version 1.8.0_20
+Building tree for all the packages and classes...
+Generating C:\Github\unit3DecisionsLoops\GameOfLifeLab\doc\GameOfLifeTest.html...
+Generating C:\Github\unit3DecisionsLoops\GameOfLifeLab\doc\package-frame.html...
+Generating C:\Github\unit3DecisionsLoops\GameOfLifeLab\doc\package-summary.html...
+Generating C:\Github\unit3DecisionsLoops\GameOfLifeLab\doc\constant-values.html...
+Building index for all the packages and classes...
+Building index for all classes...
+Generating C:\Github\unit3DecisionsLoops\GameOfLifeLab\doc\allclasses-frame.html...
+Generating C:\Github\unit3DecisionsLoops\GameOfLifeLab\doc\allclasses-noframe.html...
+Generating C:\Github\unit3DecisionsLoops\GameOfLifeLab\doc\index.html...
+Generating C:\Github\unit3DecisionsLoops\GameOfLifeLab\doc\stylesheet.css...

@@ -4,6 +4,7 @@ import info.gridworld.actor.Rock;
 import info.gridworld.grid.Grid;
 import info.gridworld.grid.BoundedGrid;
 import info.gridworld.grid.Location;
+import java.awt.Color;
 import java.util.*;
 
 /**
@@ -19,18 +20,17 @@ public class GameOfLife
     private ActorWorld world;
 
     // the game board will have 5 rows and 5 columns
-    private final int ROWS = 46;
-    private final int COLS = 103;
+    private final int ROWS = 100;
+    private final int COLS = 100;
 
     // constants for the location of the three cells initially alive
-    private final int X1 = 22, Y1 = 19;
-    private final int X2 = 22, Y2 = 20;
-    private final int X3 = 20, Y3 = 20;
-    private final int X4 = 22, Y4 = 23;
-    private final int X5 = 22, Y5 = 24;
-    private final int X6 = 22, Y6 = 25;
-    private final int X7 = 21, Y7 = 22;
-    
+    private final int X1 = 32, Y1 = 49;
+    private final int X2 = 32, Y2 = 50;
+    private final int X3 = 30, Y3 = 50;
+    private final int X4 = 32, Y4 = 53;
+    private final int X5 = 32, Y5 = 54;
+    private final int X6 = 32, Y6 = 55;
+    private final int X7 = 31, Y7 = 52;
 
     /**
      * Default constructor for objects of class GameOfLife
@@ -74,10 +74,9 @@ public class GameOfLife
         createDudes(X5,Y5);
         createDudes(X6,Y6);
         createDudes(X7,Y7);       
-       
 
     }
-
+    
     /**
      * Generates the next generation based on the rules of the Game of Life and updates the grid
      * associated with the world
@@ -94,40 +93,28 @@ public class GameOfLife
 
         // create the grid, of the specified size, that contains Actors
         Grid<Actor> grid = world.getGrid();
-
+        
+        //Arraylist gets all of the live locations 
         ArrayList<Location> all_live_locations = new ArrayList<Location>(grid.getOccupiedLocations());
+        
+        //Arraylist initialized as empty, this will hold all the locations that should be alive
+        //in the next generation
         ArrayList<Location> next_generation = new ArrayList<Location>();
 
-        for (int row = 0; row<= 9; row++){
-            for (int column = 0; column <=9; column++)
+        for (int row = 0; row<= ROWS; row++){
+            for (int column = 0; column <=COLS; column++)
             {
                 Location location = new Location(row,column);
                 ArrayList<Location> adjacent_location = new ArrayList<Location>(grid.getOccupiedAdjacentLocations(location));
-                
-                if ((all_live_locations.contains(location) && adjacent_location.size()== 2 || adjacent_location.size()== 3) || all_live_locations.size() == 3)
-                {
-                    
-                }
 
-                //When the location is alive                
-//                 if (all_live_locations.contains(location)){                    
-//                     if (adjacent_location.size()>3 || adjacent_location.size()<2)
-//                     {
-//                         String getRekt = "Get Shrekt son";                        
-//                     }
-//                     else {
-//                         next_generation.add(location);                          
-//                     }
-// 
-//                 }
-//                 //When the location is not alive
-//                 else {
-//                     if (adjacent_location.size()==3)
-//                     {
-//                         next_generation.add(location);
-//                     }
-//                 }
+                if ((all_live_locations.contains(location) && adjacent_location.size()== 2) || 
+                (all_live_locations.contains(location) && adjacent_location.size()== 3) ||
+                (adjacent_location.size()== 3))
+                {
+                    next_generation.add(location);
+                }
             }
+
         }
 
         //Resets the grid for the next generation
@@ -141,16 +128,26 @@ public class GameOfLife
             Rock rock = new Rock();
             grid.put(live, rock);
         }
-
+        
+        //Clears the arraylists for the next call
         all_live_locations.clear();
         next_generation.clear();
 
     }
-    
+
+    /**
+     * This Method slightly speeds up the process of creating rocks
+     * @param  locx   The x coordinate of the desired rock
+     * @param  locy   The y coordinate of the desired rock
+     * @pre    The grid has been created
+     *     
+     */
     private void createDudes(int locx,int locy)
     {
         Grid<Actor> grid = world.getGrid();
-        Rock rock = new Rock();
+        Random generator = new Random();
+        Color color = new Color(generator.nextInt(256),generator.nextInt(256),generator.nextInt(256));
+        Rock rock = new Rock(color);
         Location location = new Location(locx,locy);
         grid.put(location,rock);
     }
@@ -194,18 +191,15 @@ public class GameOfLife
      * Creates an instance of this class. Provides convenient execution.
      *
      */
-    public static void main(String[] args)
+    public static void main(String[] args) throws InterruptedException
     {
-        GameOfLife game = new GameOfLife();
-
+        GameOfLife game = new GameOfLife(); 
+        //INfinite loop that creates advances to the next generation ever 100 milliseconds
         while (true) {
-            try {                
-                Thread.sleep(100);
-                game.createNextGeneration();
-            }
-            catch (InterruptedException ex) {
-                ex.printStackTrace();
-            }
-        }
+            Thread.sleep(100);
+            game.createNextGeneration();
+        }        
     }
+    
+    
 }
