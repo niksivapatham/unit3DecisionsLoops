@@ -54,7 +54,7 @@ public class SentimentDictionary
         {
             File sentimentFile = new File( fileName );
             Scanner in = new Scanner( sentimentFile );
-            in.useDelimiter( "[,\n]" );
+            in.useDelimiter( "[,\r\n]" );
             
             while( in.hasNext())
             {
