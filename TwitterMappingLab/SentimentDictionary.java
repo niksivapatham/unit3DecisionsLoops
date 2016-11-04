@@ -61,6 +61,7 @@ public class SentimentDictionary
                 String word = in.next();
                 Double sentiment = in.nextDouble();
                 dictionary.put( word, sentiment );
+                in.nextLine();
             }
             
             in.close();
