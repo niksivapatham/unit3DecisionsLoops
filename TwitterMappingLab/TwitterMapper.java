@@ -172,7 +172,7 @@ public class TwitterMapper
         {
             File statesFile = new File( fileName );
             Scanner in = new Scanner( statesFile );
-            in.useDelimiter( "[,\n]" );
+            in.useDelimiter( "[,\r\n]" );
             
             while( in.hasNext())
             {
@@ -180,6 +180,7 @@ public class TwitterMapper
                 Double longitude = in.nextDouble();
                 Double latitude = in.nextDouble();
                 Double area= in.nextDouble();
+                in.nextLine();
                 this.states.add( new State( abbreviation, new GeoLocation( longitude, latitude ), area ));
             }
             
